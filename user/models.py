@@ -21,13 +21,13 @@ class Profile(models.Model):
         user=cls.objects.filter(user_name__iexact=username)
         return user
 
-# class Image(models.Model):
-#     image = models.ImageField(upload_to='articles/')
-#     image_name= models.CharField(max_length=60)
-#     image_caption =models.CharField(max_length=60)
-#     uploaded_on = models.DateTimeField(auto_now_add=True)
-#     comments=models.TextField()
-#     user_profile =models.ForeignKey(Profile)
+class Image(models.Model):
+    image = models.ImageField(upload_to='articles/')
+    image_name= models.CharField(max_length=60)
+    image_caption =models.CharField(max_length=60)
+    uploaded_on = models.DateTimeField(auto_now_add=True)
+    comments=models.TextField()
+    user_profile =models.ForeignKey(Profile)
 
     # def __str__:
     #     return self.image_name
