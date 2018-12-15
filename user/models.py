@@ -29,15 +29,15 @@ class Image(models.Model):
     comments=models.TextField()
     user_profile =models.ForeignKey(Profile)
 
-    # def __str__:
-    #     return self.image_name
-    # @classmethod
-    # def save_image(self):
-    #     cls.save()
-    # @classmethod
-    # def del_image(self):
-    #     cls.delete()
-    # def update_caption(self,image_caption):
-    #     self.update()
+    def __str__:
+        return self.image_name
+    @classmethod
+    def save_image(self):
+        cls.save()
+    @classmethod
+    def del_image(self):
+        cls.delete()
+    def update_caption(self,image_caption):
+        self.update()
 
   
