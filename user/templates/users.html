@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="container-fluid bg-light">
+  <div class="row pt-5">
+    {% if users%}
+    <div class="col-md-3"></div>
+    <div class="col-md-6 bg-white">
+        <h3 class="text-center pt-3">Suggestions for you.</h3>
+      {% for user in users%}
+      <div class="row pt-5 ">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 ">
+          <p>{{user.username}}</p>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-outline-success btn-sm">Follow</button>
+        </div>
+      </div> <hr>
+      {% endfor%}
+    </div>
+    <div class="col-md-3"></div>
+    {%endif%}
+  </div>
+</div>
+{%endblock%}
+
+
