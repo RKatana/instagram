@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white pt-3 sticky-top" ">
+  <div class="col-md-2"></div>
+    <a class="navbar-brand" href="#">Insta</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    {% if user.is_authenticated%}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item active">
+          <a class="nav-link navbar-brand" href="/users">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active navbar-brand" href="{%url 'posts'%}">Posts</a>
+        </li>
+        <form action='{%url "search_results"%}' class="form-inline my-2 my-lg-0 pl-sm-0 pr-sm-0 pl-md-5 pr-md-5 ">
+          <input class="form-control mr-sm-2 " name='users' type="search" placeholder="Find users" aria-label="Search">
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        </form>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle navbar-brand active text-success" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{user.username}}
+          </a>
+          <div class="dropdown-menu col-sm-3" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/user_profile">Profile</a>
+            <a class="dropdown-item" href="/user_profile">Posts</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-primary" href="/accounts/password/change">Reset Password</a>
+            <input type="hidden" name="next" value="/">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navbar-brand active" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+    {%else%}
+    <li class="nav-item list-unstyled">
+      <a class="nav-link navbar-brand active" href="/accounts/login">Login</a>
+    </li>
+    {%endif%}
+    <div class="col-md-2"></div>
+  </nav>
