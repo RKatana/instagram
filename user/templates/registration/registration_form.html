@@ -1,0 +1,37 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 pt-5">
+            <h3 class="text-center">Sign Up</h3>
+            {% if form.errors %}
+            <p> Ensure you entered the right info </p>
+            {% endif %}
+
+            <div class="card-body">
+
+                <form  action="/accounts/register/" method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <div class="form-group form-inline">
+                        <p><input type="submit" class="btn btn-outline-primary btn-sm" value="Sign Up"></p>
+                        <input type="hidden" name="next" value="/accounts/login">
+                        <p class="pl-3"> <a class="btn btn-outline-primary btn-sm" href="/accounts/login/?next=/">Sign In</a></p>
+                    </div>
+
+
+                </form>
+
+            </div>      
+            
+            
+        </div>
+
+    </div>
+</div>
+<!-- empty div -->
+<div class="col-md-4"></div>
+</div>
+{% endblock %}
