@@ -19,8 +19,7 @@ class Profile(models.Model):
 
     @classmethod
     def search_user(cls,username):
-        user=cls.objects.filter(user__username__icontains=username)
-        return user
+        return User.objects.filter(username__icontains = username)
     
     def save_profile(self):
         self.save()

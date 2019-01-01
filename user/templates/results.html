@@ -1,4 +1,30 @@
 {% extends 'base.html'%}
 {% block content%}
-<h3>search results</h3>
+<div class="container">
+    <div class="row">   
+    <div class="col-md-3"></div>
+    <div class="col-md-6 bg-white">
+        <h3 class="text-center pt-3">Found {{users|length}} search matches.</h3>
+        {% for user in users%}
+        <div class="row pt-5 ">
+          <div class="col-md-1 pt-2">
+          {%if user.profile.profile_photo%}
+            <img src="user.profile.profile_photo" alt="" height='40' width="40">
+          {%else%}
+            <img src="../media/images/instagram.jpeg" alt="" height="40" width="40" class="">
+          {%endif%}  
+          </div>
+          <div class="col-md-8 ">
+            <p>{{user.username}}</p>
+            <small>{{user.profile.bio}} </small>
+          </div>
+          <div class="col-md-3 mt-5 pb-0">
+            <button class="btn btn-outline-success btn-sm">Follow</button>
+          </div>
+        </div> <hr>
+        {% endfor%}
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+</div>
 {%endblock%}

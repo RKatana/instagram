@@ -1,17 +1,14 @@
 {% extends 'base.html'%}
 {% block content%}
 <div class="container">
-    <div class="row pt-5">
-    
-        <div class="col-md-2 col-sm-2"></div>
+    <div class="row pt-5">   
         {%for image in images%}
         <div class="col-md-4 col-sm-12">
             <img src="{{image.image.url}}" width="98%" alt="">
             <p>{{img.image_caption}}</p>
             <p class="text-center ">Posted by: <a href="">{{image.user_profile.username}}</a></p>
         </div>
-        {%endfor%}
-        <div class="col-md-2 col-sm-2"></div>
+        {%endfor%}  
     </div>
 </div>
 {%endblock%}

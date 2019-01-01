@@ -5,11 +5,19 @@
 
 <div class="container">
     <div class="row d-flex pt-5 justify-content-center">
-        {% if pic%}
+        {% if user.profile.profile_photo.url%}
         <div class="card ">
-            <img src=" " width="400px" height="300px;" alt="" class="img-responsive">
+        <img src="{{user.profile.profile_photo.url}} " width="400px" height="300px;" alt="" class="img-responsive">
             <h3 class="profile-user-name" style="font-family: 'Charm', cursive;">{{user.username}}</h3>
-            <a href="{% url 'update' %}"><button class="btn btn-outline-primary">Edit Profile</button></a>
+            <div class="d-inline">
+                <p>Followers: 0</p>
+                <p>Following: 0</p>
+                <p>Posts:</p>
+            </div>
+            <div class="d-inline">
+                <a href="{% url 'update' %}"><button class="btn btn-outline-primary btn-sm">Edit Profile</button></a>
+                <a href="{% url 'upload' %}"><button class="btn btn-outline-primary btn-sm">Post Images</button></a>
+            </div>  
         </div>
         {% else %}
         <div class="col-md-3"></div>
@@ -18,10 +26,11 @@
             <img src="../media/images/instagram.jpeg" alt="">
         </div>
         <div class="col-md-4">
-            <h2>{{user.user.username}}</h2>
+            <h2>{{user.username}}</h2>
+            <small>{{user.profile.bio}} </small><br> <br>
             <div class="d-inline">
-                <p>Followers:</p>
-                <p>Following:</p>
+                <p>Followers: 0</p>
+                <p>Following: 0</p>
                 <p>Posts:</p>
             </div>
             <div class="d-inline">
