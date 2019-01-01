@@ -4,7 +4,7 @@
     <div class="row pt-5">   
         {%for image in images%}
         <div class="col-md-4 col-sm-12">
-            <img src="{{image.image.url}}" width="98%" height="50%" alt="">
+            <img src="{{image.image.url}}" width="98%" height="auto" alt="">
             <p>{{img.image_caption}}</p>
             <p class="text-center ">Posted by: <a href="">{{image.user_profile.username}}</a></p>
         </div>
