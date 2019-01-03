@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class ImageUploadForm(forms.ModelForm):
      class Meta:
          model=Image
-         exclude = ['comments','user_profile']
+         fields = '__all__'
 
 class ProfileForm(forms.ModelForm):
     class Meta:
