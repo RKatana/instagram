@@ -20,7 +20,8 @@ import user
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'',include('user.urls')),
+    url(r'^$',views.login, name='login'),
+    url(r'^main/',include('user.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
 ]

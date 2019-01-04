@@ -10,14 +10,14 @@
             <p> Ensure you entered the right info </p>
             {% endif %}
             <div class="card-body text-white">
-                <form  action="/accounts/register/?next=/users/" method="post" >
+                <form  action="/accounts/register/?next=/main/users/" method="post" >
                     {% csrf_token %}
                     {% bootstrap_form form %}
                     <div class="form-group form-inline">
                         <p><input type="submit" class="btn btn-primary btn-sm" value="Sign Up"></p>
                         <p class="pl-3"> <a class="btn btn-primary btn-sm" href="/accounts/login/">Sign In</a></p>
                     </div>
-                    <input type="hidden" name="next" value="/accounts/login/">
+                    <input type="hidden" name="next" value="/">
                 </form>
             </div>                  
         </div>

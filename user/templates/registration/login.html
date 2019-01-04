@@ -2,26 +2,58 @@
 {% load bootstrap4 %}
 {% block content %}
 <div class="container-fluid">
-    <div class="row pt-5">
+    <div class="row">
         <!-- Empty div -->
-        <div class="col-md-4 bg-light"></div>
-        <div class="col-md-4 pt-5" style="background-image:url('../../static/images/ducks.jpeg');">
+        <div class="col-md-6 bg-light d-sm-none d-md-block img" style='background-image: url("../../static/images/bg.jpeg");height:; background-size: cover;'>
+            <div class="pt-5 ml-5 text-white">
+                <h2 >Hello!</h2>
+                <h3>Welcome to <span><h1>The Insta</h1></span> <br class="text-dark">Kindly Login to continue.</h3>
+            </div>
+        </div>
+        <div class="col-md-6 pt-5 img" style="background-image:url('../../static/images/ducks.jpeg');height:; background-size: cover;">
             {% if form.errors %}
             <p> Incorrect password or username</p>
             {% endif %}
-            <h3 class="text-center text-white">Sign In</h3>
-            <form  action="/accounts/login/" method="post" class="text-white" style="opacity:1">
-                {% csrf_token %}
-                {% bootstrap_form form%}
-                <div class="form-group form-inline ">
-                   <p class=""> <input type="submit" class="btn btn-primary btn-sm " value="Log in"></p>
-                   <p class="pl-3"><a class = "btn btn-primary btn-sm " href="/accounts/register/">Sign Up </a></p>
+            <div class="row">
+                <div class="col-md-2 col-sm-1"></div>
+                <div class="col-md-8 col-sm-10">
+                        <div class="card-header">
+                                <h1 class="d-md-none  text-center">The Insta</h1>
+                                <h3 class="text-center text-white">Sign In</h3>
+            
+                            </div>
+                            <div class="card-body ">
+                                    <form  action="/" method="post" class="text-white" style="opacity:1">
+                                        {% csrf_token %}
+                                        {% bootstrap_form form%}
+                                        <div class="form-group form-inline ">
+                                           <p class=""> <input type="submit" class="btn btn-primary btn-sm " value="Log in"></p>
+                                           <p class="pl-3"><a class = "btn btn-primary btn-sm " href="/accounts/register/">Sign Up </a></p>
+                                        </div>
+                                        <input type="hidden" name="next" value="/main/users">
+                                    </form>
+                            </div>
                 </div>
-                <input type="hidden" name="next" value="/users">
-            </form>
+                <div class="col-md-2 col-sm-1"></div>
+            </div>
         </div>              
         <!-- empty div -->
-        <div class="col-md-4 bg-light"></div>
     </div>
+    <style>
+        div.img{
+            height:630px
+        }
+        @media only screen and (max-width:600px) and (max-height:1000px){
+            .bg-light{
+                display:none;
+                float:right
+            }
+            div.img{
+                height:800px;
+                background-size: cover;
+                background-image:;
+            }
+        }
+    </style>
 </div>
 {% endblock %}
